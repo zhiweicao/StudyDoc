@@ -1,6 +1,6 @@
 #  大纲
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis大纲.png" alt="img" style="zoom:30%;" />
+<img src="./img/Redis大纲.png" alt="img" style="zoom:30%;" />
 
 - **高性能主线**，包括线程模型、数据结构、持久化、网络框架；
 - **高可靠主线**，包括主从复制、哨兵机制；
@@ -8,13 +8,13 @@
 
 ### Redis问题画像图
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis问题画像图.png" alt="img" style="zoom:25%;" />
+<img src="./img/Redis问题画像图.png" alt="img" style="zoom:25%;" />
 
 ## 一个简单的键-值数据库SIMPLEKV
 
 ### 功能模块示意图
 
-<img src="/Users/zhiwei/Java/Doc/img/一个简单的SimpleKV.png" alt="img" style="zoom:10%;" />
+<img src="./img/一个简单的SimpleKV.png" alt="img" style="zoom:10%;" />
 
 一个简单的键-值数据库包含以下几个模块，
 
@@ -53,7 +53,7 @@ graph LR
 
 Redis使用一个全局哈希表保存数据，其中的每一个元素被称为一个哈希桶。每个哈希桶中保存了键值对的数据，其中键值对的值是指向结果数据结构的指针。
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis的Hash过程.png" alt="img" style="zoom:25%;" />
+<img src="./img/Redis的Hash过程.png" alt="img" style="zoom:25%;" />
 
 #### Redis如何解决Hash冲突？
 
@@ -61,7 +61,7 @@ Redis使用一个全局哈希表保存数据，其中的每一个元素被称为
 
 当遇到哈希冲突时，使用链表解决。
 
-<img src="/Users/zhiwei/Java/Doc/img/Hash链表.png" alt="img" style="zoom:28%;" />
+<img src="./img/Hash链表.png" alt="img" style="zoom:28%;" />
 
 ##### 渐进式rehash
 
@@ -79,7 +79,7 @@ redis使用两张哈希表，第二张表用来扩容。Redis 开始执行 rehas
 
 其中，rehash的过程是渐进式的。简单来说就是在第二步拷贝数据时，Redis 仍然正常处理客户端请求，每处理一个请求时，从哈希表 1 中的第一个索引位置开始，顺带着将这个索引位置上的所有 entries 拷贝到哈希表 2 中；等处理下一个请求时，再顺带拷贝哈希表 1 中的下一个索引位置的 entries。如下图所示：
 
-<img src="/Users/zhiwei/Java/Doc/img/渐进式rehash.png" alt="img" style="zoom:25%;" />
+<img src="./img/渐进式rehash.png" alt="img" style="zoom:25%;" />
 
 ### Redis数据的中间类型和底层结构
 
@@ -124,25 +124,25 @@ redis 127.0.0.1:6379> lrange runoob 0 10
 
 #### 数据类型和底层数据结构的对应关系
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis数据类型和底层数据结构的关系.png" alt="img" style="zoom:15%;" />
+<img src="./img/Redis数据类型和底层数据结构的关系.png" alt="img" style="zoom:15%;" />
 
 ##### 什么是压缩列表？
 
 压缩列表实际上类似于一个数组，数组中的每一个元素都对应保存一个数据。和数组不同的是，压缩列表在表头有三个字段 zlbytes、zltail 和 zllen，分别表示列表长度、列表尾的偏移量和列表中的 entry 个数；压缩列表在表尾还有一个 zlend，表示列表结束。在压缩列表中，如果我们要查找定位第一个元素和最后一个元素，可以通过表头三个字段的长度直接定位，复杂度是 O(1)。
 
-<img src="/Users/zhiwei/Java/Doc/img/压缩列表.png" alt="img" style="zoom:30%;" />
+<img src="./img/压缩列表.png" alt="img" style="zoom:30%;" />
 
 而查找其他元素时，就没有这么高效了，只能逐个查找，此时的复杂度就是 O(N) 了。
 
 ##### 什么是跳表？
 
-<img src="/Users/zhiwei/Java/Doc/img/跳表的数据结构.png" alt="img" style="zoom:25%;" />
+<img src="./img/跳表的数据结构.png" alt="img" style="zoom:25%;" />
 
 跳表在链表的基础上，增加了**多级索引**，通过索引位置的几个跳转，实现数据的快速定位。
 
 ##### 数据结构的时间复杂度
 
-<img src="/Users/zhiwei/Java/Doc/img/数据结构的时间复杂度.png" alt="img" style="zoom:23%;" />
+<img src="./img/数据结构的时间复杂度.png" alt="img" style="zoom:23%;" />
 
 #### 数据操作的方式
 
@@ -167,7 +167,7 @@ Redis使用同步非阻塞I/O网络模型实现单线程的多路复用
 
 Socket网络模型中的非阻塞模式体现在三个函数的调用
 
-<img src="/Users/zhiwei/Java/Doc/img/非阻塞模型方法.png" alt="img" style="zoom:10%;" />
+<img src="./img/非阻塞模型方法.png" alt="img" style="zoom:10%;" />
 
 在 socket 模型中，不同操作调用后会返回不同的套接字类型。
 
@@ -175,7 +175,7 @@ socket() 方法会返回主动套接字，然后调用 listen() 方法，将主�
 
 **当设置为非阻塞模式时**：当 Redis 调用 accept() 但一直未有连接请求到达时，Redis 线程可以返回处理其他操作，而不用一直等待。但是，你要注意的是，调用 accept() 时，已经存在监听套接字了。
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis的多路复用.png" alt="img" style="zoom:15%;" />
+<img src="./img/Redis的多路复用.png" alt="img" style="zoom:15%;" />
 
 #### Redis主线程的 I/O 执行过程
 
@@ -220,7 +220,7 @@ Redis常作为缓存，一旦服务器宕机，所有内存中数据都会丢失
 - Everysec，每秒写回：每个写命令执行完，只是先把日志写到 AOF 文件的内存缓冲区，每隔一秒把缓冲区中的内容写入磁盘；
 - No，操作系统控制的写回：每个写命令执行完，只是先把日志写到 AOF 文件的内存缓冲区，由操作系统决定何时将缓冲区内容写回磁盘。
 
-<img src="/Users/zhiwei/Java/Doc/img/AOF的写回策略.png" alt="img" style="zoom:20%;" />
+<img src="./img/AOF的写回策略.png" alt="img" style="zoom:20%;" />
 
 ##### 如何选取写回策略？
 
@@ -244,11 +244,11 @@ Redis常作为缓存，一旦服务器宕机，所有内存中数据都会丢失
 
 重写机制是将多次对同一条数据的修改，压缩成一整行，保证数据的最终一致性。
 
-<img src="/Users/zhiwei/Java/Doc/img/Redis的重写机制.png" alt="img" style="zoom:15%;" />
+<img src="./img/Redis的重写机制.png" alt="img" style="zoom:15%;" />
 
 ##### 重写机制是如何进行的？
 
-<img src="/Users/zhiwei/Java/Doc/AOF的非阻塞重写过程.png" alt="img" style="zoom:15%;" />
+<img src="./AOF的非阻塞重写过程.png" alt="img" style="zoom:15%;" />
 
 在Redis启动重写后，
 
@@ -302,7 +302,7 @@ Copy-On-Write即保证了快照瞬间数据的一致性，又保证了Redis服�
 
 ##### Redis快照的执行bgsave具体流程是怎样的？
 
-![img](/Users/zhiwei/Java/Doc/img/Redis的写时复制机制.png)
+![img](./img/Redis的写时复制机制.png)
 
 1. bgsave从主线程中fork 出来，可以共享主线程的内存数据，并开始把它们写入RDB文件。
 2. 如果主线程和bgsave子线程同时读取同一个键值，则互不印象。

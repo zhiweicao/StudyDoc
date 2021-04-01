@@ -29,7 +29,7 @@ graph LR
 
 3. 每当执行Java方法时，Java虚拟机会对当前方法创建一个栈桢。
 
-   <img src="/Users/zhiwei/Java/Doc/img/Java虚拟机的内存结构.png" alt="img" style="zoom:30%;" />
+   <img src="./img/Java虚拟机的内存结构.png" alt="img" style="zoom:30%;" />
 
 #### 线程共享
 
@@ -72,7 +72,7 @@ Java使用8个基本类型，提高程序的执行速度和内存使用。
 
 #### 虚拟机栈（栈帧）
 
-<img src="/Users/zhiwei/Java/Doc/栈帧.png" alt="img" style="zoom:47%;" />
+<img src="./栈帧.png" alt="img" style="zoom:47%;" />
 
 栈帧(Stack Frame)是用于支持虚拟机进行方法调用和方法执行的数据结构。栈帧存储了方法的局部变量表、操作数栈、动态连接和方法返回地址等信息。每一个方法从调用至执行完成的过程，都对应着一个栈帧在虚拟机栈里从入栈到出栈的过程。
 
@@ -445,7 +445,7 @@ Java虚拟机在执行重载方法时，是通过参量的静态类型作为判�
 
 ##### 典型场景：重写（override）
 
-<img src="/Users/zhiwei/Java/Doc/img/方法表.png" alt="img" style="zoom:75%;" />
+<img src="./img/方法表.png" alt="img" style="zoom:75%;" />
 
 通过索引，从虚方法表上查到对应方法的地址
 
@@ -486,7 +486,7 @@ Throwable 有两大直接子类。
 2. 第二子类则是 Exception，涵盖程序可能需要捕获并且处理的异常。
    1. Exception 有一个特殊的子类 RuntimeException，用来表示“程序虽然无法继续执行，但是还能抢救一下”的情况。前边提到的数组索引越界便是其中的一种。
 
-<img src="/Users/zhiwei/Java/Doc/img/异常分类.png" alt="img" style="zoom:20%;" />
+<img src="./img/异常分类.png" alt="img" style="zoom:20%;" />
 
 ###  Java异常是如何生成的？/ 为什么异常生成十分昂贵？
 
@@ -524,7 +524,7 @@ public static void main(java.lang.String[]);
 
 ##### Finally 的编译
 
-<img src="/Users/zhiwei/Java/Doc/img/异常的编译机制.png" alt="img" style="zoom:30%;" />
+<img src="./img/异常的编译机制.png" alt="img" style="zoom:30%;" />
 
 当前版本 Java 编译器的做法，是**复制 finally 代码块**的内容，分别放在 try-catch 代码块所有正常执行路径以及异常执行路径的出口中。
 
@@ -768,7 +768,7 @@ Java 虚拟机设置了一个阈值 15（可以通过 -Dsun.reflect.inflationThr
 
 ### Java虚拟机的堆划分
 
-<img src="/Users/zhiwei/Java/Doc/img/Java虚拟机的堆划分.png" alt="img" style="zoom:33%;" />
+<img src="./img/Java虚拟机的堆划分.png" alt="img" style="zoom:33%;" />
 
 就是将堆空间划分为两代，分别叫做新生代和老年代。新生代用来存储新建的对象。当对象存活时间够长时，则将其移动到老年代。
 

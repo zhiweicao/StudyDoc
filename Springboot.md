@@ -13,7 +13,7 @@
 
 1. IoC（Inverse of Control:控制反转）是一种**设计思想**，就是 **将原本在程序中手动创建对象的控制权，交由Spring框架来管理。** IoC 在其他语言中也有应用，并非 Spring 特有。 **IoC 容器是 Spring 用来实现 IoC 的载体， IoC 容器实际上就是个Map（key，value）Map 中存放的是各种对象。**
 
-![OIP.SXkoisfdAvrbRfdEU49QZwAAAA](/Users/zhiwei/Java/Doc/img/SpringIOC耦合.png)![](/Users/zhiwei/Java/Doc/img/SpringIOC解耦.png)
+![OIP.SXkoisfdAvrbRfdEU49QZwAAAA](./img/SpringIOC耦合.png)![](./img/SpringIOC解耦.png)
 
 2. **AOP**的本质是对类做了一个代理，看似在调用自己写的类，实际上调用Spring Aop拦截增强后的代理类
 
@@ -1010,7 +1010,7 @@ Shutdown端点:
 
 ### 如何使jar文件可执行
 
-<img src="/Users/zhiwei/Java/Doc/img/maven可执行.png" alt="image-20210110203352888" style="zoom:50%;" />
+<img src="./img/maven可执行.png" alt="image-20210110203352888" style="zoom:50%;" />
 
 ### Manifest.mf文件
 
@@ -1087,7 +1087,7 @@ SpringCloud使用Discovery Client将服务的发现和注册封装起来，下�
 
 DiscoveryClient是Spring Cloud中，是注册中心在服务提供者端所需要启动的客户端。
 
-![img](/Users/zhiwei/Java/Doc/img/注册中心.png)
+![img](./img/注册中心.png)
 
 ### 使用Eureka作为注册中心（主要用在AWS）
 
@@ -1430,11 +1430,11 @@ zooKeeper是一套分布式的协调服务
 - 该对象监控调⽤（监控服务是什么时候被调用的）和断路情况（对发生断路保护的行为监控埋点）
 - 调⽤失败触发阈值后，断路器熔断服务，后续调⽤直接由断路器返回错误，不再执⾏实际调⽤，直到超出熔断值后，再次重试探活
 
-<img src="/Users/zhiwei/Java/Doc/断路器.png" alt="image-20210118232134681" style="zoom:33%;" />
+<img src="./断路器.png" alt="image-20210118232134681" style="zoom:33%;" />
 
 ## Hystrix实现服务降级
 
-<img src="/Users/zhiwei/Java/Doc/Hystrix.png" alt="image-20210118233910877" style="zoom:33%;" />
+<img src="./Hystrix.png" alt="image-20210118233910877" style="zoom:33%;" />
 
 ### 什么是Hystix？
 
@@ -1701,7 +1701,7 @@ ab工具压测
 
 ### Spring Cloud Stream 的⼀些核⼼概念
 
-<img src="/Users/zhiwei/Java/Doc/img/BInder.png" alt="image-20210124175146350" style="zoom:33%;" />
+<img src="./img/BInder.png" alt="image-20210124175146350" style="zoom:33%;" />
 
 #### Binder
 
@@ -1749,7 +1749,7 @@ ab工具压测
 
 #### 分区
 
-<img src="/Users/zhiwei/Java/Doc/img/消费组.png" alt="image-20210124175701654" style="zoom:50%;" />
+<img src="./img/消费组.png" alt="image-20210124175701654" style="zoom:50%;" />
 
 ##### 什么是分区？
 

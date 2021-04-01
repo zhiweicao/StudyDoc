@@ -79,7 +79,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 #### HashMap
 
-<img src="/Users/zhiwei/Java/Doc/img/HashMap.png" alt="img" style="zoom:50%;" />
+<img src="./img/HashMap.png" alt="img" style="zoom:50%;" />
 
 1. **HashMap**
 2. **Hashtable**
@@ -90,7 +90,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 从结构实现来讲，HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的，如下如所示。
 
-<img src="/Users/zhiwei/Java/Doc/img/HashMap结构.png" alt="img" style="zoom:30%;" />
+<img src="./img/HashMap结构.png" alt="img" style="zoom:30%;" />
 
 **负载因子：0.75**，即负载因子 * 长度 = 能容纳的最大值，超过这个值将会实施扩容机制，这个值可以大于1。
 
@@ -107,25 +107,25 @@ static final int hash(Object key) {   //jdk1.8 & jdk1.7
 }
 ```
 
-<img src="/Users/zhiwei/Java/Doc/img/hashMap的hash过程.png" alt="img" style="zoom:33%;" />
+<img src="./img/hashMap的hash过程.png" alt="img" style="zoom:33%;" />
 
 思路，将hashcode()的结果取高位和低位，求他们的或异值，然后根据长度获取对应下标。
 
 2. 分析HashMap的put方法
 
-   <img src="/Users/zhiwei/Java/Doc/img/HashMap的put机制.png" alt="img" style="zoom:30%;" />
+   <img src="./img/HashMap的put机制.png" alt="img" style="zoom:30%;" />
 
 ##### HashMap的链表插入过程
 
-<img src="/Users/zhiwei/Java/Doc/img/HashMap的链表插入过程.png" alt="img" style="zoom:36%;" />
+<img src="./img/HashMap的链表插入过程.png" alt="img" style="zoom:36%;" />
 
 即从头部插入
 
 ##### HashMap的扩容过程
 
-<img src="/Users/zhiwei/Java/Doc/img/HashMap的扩容过程1.png" alt="img" style="zoom:30%;" />
+<img src="./img/HashMap的扩容过程1.png" alt="img" style="zoom:30%;" />
 
-<img src="/Users/zhiwei/Java/Doc/img/HashMap的扩容过程2.png" alt="img" style="zoom:35%;" />
+<img src="./img/HashMap的扩容过程2.png" alt="img" style="zoom:35%;" />
 
 ##### 线程安全性
 
@@ -214,7 +214,7 @@ Token是用于确定交易的唯一属性，也是服务端用于检验当前交
 6、业务处理成功后，从缓存中删除该Token；
 7、删除获取的分布式锁；
 
-<img src="/Users/zhiwei/Java/Doc/img/token+分布式锁.png" alt="img" style="zoom:67%;" />
+<img src="./img/token+分布式锁.png" alt="img" style="zoom:67%;" />
 
 ## Java中的BIO，NIO，AIO
 
@@ -284,7 +284,7 @@ Channel.write(Buffer)就是将Channel的内容写到Buffer中
 
 ##### Selector
 
-<img src="/Users/zhiwei/Java/Doc/img/Java NIO selector.png" alt="Selector（选择器）" style="zoom:60%;" />
+<img src="./img/Java NIO selector.png" alt="Selector（选择器）" style="zoom:60%;" />
 
 在Java中，Selector是由epoll实现的，Selector是使用的是同步非阻塞模型，管理多个Channel。当有数据写入时，Selector会被被提示，寻找到对应IO，然后获取数据。
 

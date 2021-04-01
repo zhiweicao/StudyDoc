@@ -261,7 +261,7 @@ Handler是Spring实现web请求的接口，存在Controller(等于HttpServlet), 
 
 #### 什么是适配器模式(Adapter)？
 
-![客户端调用类适配器](/Users/zhiwei/Java/Doc/img/adapter mode.png)
+![客户端调用类适配器](./img/adapter mode.png)
 
 #### 什么是handlerAdapter？为什么需要它？
 
@@ -282,7 +282,7 @@ Handler是Spring实现web请求的接口，存在Controller(等于HttpServlet), 
 
 以下是HandlerMapping的所有派生类。
 
-![img](/Users/zhiwei/Java/Doc/img/HandlerMapping依赖.png)
+![img](./img/HandlerMapping依赖.png)
 
 当@Controller被注解的时候，会创造一个contoller的bean。
 
