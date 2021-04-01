@@ -28,7 +28,7 @@ CPU、内存、I/O 设备都在不断迭代，不断朝着更快的方向努力�
 
 **我们把一个或者多个操作在 CPU 执行的过程中不被中断的特性称为原子性**。CPU 能保证的原子操作是 CPU 指令级别的，而不是高级语言的操作符，这是违背我们直觉的地方。因此，很多时候我们需要在高级语言层面保证操作的原子性。
 
-<img src="/Users/zhiwei/Java/Doc/img/线程切换的原子性问题.png" alt="img" style="zoom:48%;" />
+<img src="./img/线程切换的原子性问题.png" alt="img" style="zoom:48%;" />
 
 #### 3. 编译优化带来的`有序性`问题
 
@@ -75,7 +75,7 @@ public class Singleton {
 
 ### 操作系统线程的几种状态
 
-<img src="/Users/zhiwei/Java/Doc/img/OS的线程状态.png" alt="img" style="zoom:40%;" />
+<img src="./img/OS的线程状态.png" alt="img" style="zoom:40%;" />
 
 这“五态模型”的详细情况如下所示。
 
@@ -87,7 +87,7 @@ public class Singleton {
 
 ### Java线程的状态
 
-<img src="/Users/zhiwei/Java/Doc/img/Java的线程状态.png" alt="线程状态图" style="zoom:60%;" />
+<img src="./img/Java的线程状态.png" alt="线程状态图" style="zoom:60%;" />
 
 Java 语言中线程共有六种状态，分别是：
 
@@ -284,7 +284,7 @@ ThreadLocal 用作每个线程内需要独立保存信息，以便供其他方�
 
 这条规则是指如果 A Happens-Before B，且 B Happens-Before C，那么 A Happens-Before C。
 
-<img src="/Users/zhiwei/Java/Doc/img/happens-before传递性.png" alt="img" style="zoom:48%;" />
+<img src="./img/happens-before传递性.png" alt="img" style="zoom:48%;" />
 
 ### Java内存模型底层怎么实现的？
 
@@ -317,7 +317,7 @@ int e = 5;//代码5
 
 首先，我们要把临界区要保护的资源标注出来，如图中临界区里增加了一个元素：受保护的资源 R；其次，我们要保护资源 R 就得为它创建一把锁 LR；最后，针对这把锁 LR，我们还需在进出临界区时添上加锁操作和解锁操作。另外，在锁 LR 和受保护资源之间，我特地用一条线做了关联，这个关联关系非常重要。很多并发 Bug 的出现都是因为把它忽略了，然后就出现了类似锁自家门来保护他家资产的事情，这样的 Bug 非常不好诊断，因为潜意识里我们认为已经正确加锁了。
 
-<img src="/Users/zhiwei/Java/Doc/img/什么是锁.png" alt="img" style="zoom:48%;" />
+<img src="./img/什么是锁.png" alt="img" style="zoom:48%;" />
 
 ##### 锁解决的是什么问题？`todo`
 
@@ -339,7 +339,7 @@ class SafeCalc {
 
 以上代码对value使用了不同的锁，对象锁和对象类锁。这种情况下在访问受保护的资源时，无法保证线程访问的独占性。
 
-<img src="/Users/zhiwei/Java/Doc/img/synchronized的易错点.png" alt="img" style="zoom:48%;" />
+<img src="./img/synchronized的易错点.png" alt="img" style="zoom:48%;" />
 
 **受保护资源和锁之间的关联关系是 N:1 的关系**，对一个资源使用多个锁是不可行的。
 
@@ -428,9 +428,9 @@ AQS是Java并发包提供的创建锁或同步器的框架，使用的是**模�
   - 优点是可以减少唤起线程的开销，整体的吞吐效率高，因为线程有几率不阻塞直接获得锁，CPU不必唤醒所有线程。
   - 缺点是处于等待队列中的线程可能会饿死，或者等很久才会获得锁。
 
-<img src="/Users/zhiwei/Java/Doc/img/公平锁和非公平锁.png" alt="img" style="zoom:40%;" />
+<img src="./img/公平锁和非公平锁.png" alt="img" style="zoom:40%;" />
 
-<img src="/Users/zhiwei/Java/Doc/img/非公平锁的运行机制.png" alt="img" style="zoom:45%;" />
+<img src="./img/非公平锁的运行机制.png" alt="img" style="zoom:45%;" />
 
 ##### 公平锁和非公平锁的主要区别
 
@@ -442,7 +442,7 @@ AQS是Java并发包提供的创建锁或同步器的框架，使用的是**模�
 
 #### 乐观锁和悲观锁
 
-<img src="/Users/zhiwei/Java/Doc/img/悲观锁和乐观锁.png" alt="img" style="zoom:40%;" />
+<img src="./img/悲观锁和乐观锁.png" alt="img" style="zoom:40%;" />
 
 #### 自旋锁和自适应自旋锁
 
@@ -678,7 +678,7 @@ class Account {
 
 #### 什么是管程机制？
 
-<img src="/Users/zhiwei/Java/Doc/img/MESA管程模型示意图.png" alt="img" style="zoom:40%;" />
+<img src="./img/MESA管程模型示意图.png" alt="img" style="zoom:40%;" />
 
 在Java 的管程模型中，临界区是受锁🔒保护的。
 
@@ -762,7 +762,7 @@ Synchronzed实现了MESA模型的一部分。Java 内置的管程方案（synchr
 
 #### 用 synchronized 和wait(), notify(), notifyAll() 来实现等待 - 通知机制
 
-<img src="/Users/zhiwei/Java/Doc/img/Synchronized等待-通知机制.png" alt="img" style="zoom:35%;" />
+<img src="./img/Synchronized等待-通知机制.png" alt="img" style="zoom:35%;" />
 
 在多线程场景下，有以下几个场景
 
@@ -986,9 +986,9 @@ Pooling is the grouping together of resources (assets, equipment, personnel, eff
 
 ### 线程池的运行机制
 
-<img src="/Users/zhiwei/Java/Doc/img/线程池的任务调度.png" alt="图4 任务调度流程" style="zoom:80%;" />
+<img src="./img/线程池的任务调度.png" alt="图4 任务调度流程" style="zoom:80%;" />
 
-<img src="/Users/zhiwei/Java/Doc/img/ThreadPoolExecutor实现机制.png" alt="图2 ThreadPoolExecutor运行流程" style="zoom:67%;" />
+<img src="./img/ThreadPoolExecutor实现机制.png" alt="图2 ThreadPoolExecutor运行流程" style="zoom:67%;" />
 
 线程池在内部实际上构建了一个生产者消费者模型，将线程和任务两者解耦，并不直接关联，从而良好的缓冲任务，复用线程。线程池的运行主要分成两部分：任务管理、线程管理。任务管理部分充当生产者的角色，当任务提交后，线程池会判断该任务后续的流转：
 
@@ -1006,7 +1006,7 @@ Pooling is the grouping together of resources (assets, equipment, personnel, eff
 
    - 提供多种类型的阻塞队列，常使用有届数组。
 
-     <img src="/Users/zhiwei/Java/Doc/img/线程池队列类型.png" alt="img" style="zoom:40%;" />
+     <img src="./img/线程池队列类型.png" alt="img" style="zoom:40%;" />
 
 3. MaximumPoolSize                   线程池的最大数目
 
@@ -1014,13 +1014,13 @@ Pooling is the grouping together of resources (assets, equipment, personnel, eff
 
 5. RejectedExecutionHandler     饱和策略
 
-   <img src="/Users/zhiwei/Java/Doc/img/线程池饱和策略.png" alt="img" style="zoom:65%;" />
+   <img src="./img/线程池饱和策略.png" alt="img" style="zoom:65%;" />
 
 ### 线程池的关闭退出
 
-<img src="/Users/zhiwei/Java/Doc/img/线程池的运行状态.png" alt="img" style="zoom:60%;" />
+<img src="./img/线程池的运行状态.png" alt="img" style="zoom:60%;" />
 
-![图3 线程池生命周期](/Users/zhiwei/Java/Doc/img/线程池的生命周期.png)
+![图3 线程池生命周期](./img/线程池的生命周期.png)
 
 不论是调用shutdown()还是shutdownNow()都是遍历线程池的所有方法，逐个调用interrupt()。区别在与上图所示：
 

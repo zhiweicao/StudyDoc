@@ -1,4 +1,4 @@
-# 大纲
+#  大纲
 
 <img src="/Users/zhiwei/Java/Doc/img/Redis大纲.png" alt="img" style="zoom:30%;" />
 
@@ -303,3 +303,12 @@ Copy-On-Write即保证了快照瞬间数据的一致性，又保证了Redis服�
 ##### Redis快照的执行bgsave具体流程是怎样的？
 
 ![img](/Users/zhiwei/Java/Doc/img/Redis的写时复制机制.png)
+
+1. bgsave从主线程中fork 出来，可以共享主线程的内存数据，并开始把它们写入RDB文件。
+2. 如果主线程和bgsave子线程同时读取同一个键值，则互不印象。
+3. 如果主线程想要在运行时修改一条记录，bgsave子线程则会创建原纪录的副本，并使用这个副本进行RDB文件的写入。
+
+##### 多久执行一次快照？
+
+#### RDB快照的宕机恢复流程是怎样的？
+
