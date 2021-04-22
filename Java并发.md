@@ -185,7 +185,7 @@ synchronized (🔒) {
 //生产者
 while(true) {
   synchronized (🔒) {
-    、//任务生产
+    	//任务生产
       对象.notifyAll();
   }
 }
@@ -1002,7 +1002,7 @@ Pooling is the grouping together of resources (assets, equipment, personnel, eff
 
 1. corePoolSize  		 		 		    核心线程池的大小	
 
-2. runnableTaskQUeue                阻塞队列
+2. runnableTaskQueue                阻塞队列
 
    - 提供多种类型的阻塞队列，常使用有届数组。
 

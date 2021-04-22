@@ -221,6 +221,8 @@ Token是用于确定交易的唯一属性，也是服务端用于检验当前交
 > [Java NIO浅析](https://tech.meituan.com/2016/11/04/nio.html)
 >
 > https://www.zhihu.com/question/29005375
+>
+> [图解 | 深入揭秘 epoll 是如何实现 IO 多路复用的!](https://zhuanlan.zhihu.com/p/361750240) `TODO`
 
 ### 背景知识
 
@@ -310,7 +312,9 @@ epoll使用红黑树管理所有连接，使用一个等待队列获取所有被
 
 
 
+## 进程和线程的区别
 
+> https://zhuanlan.zhihu.com/p/125716637
 
 # 设计模式
 
